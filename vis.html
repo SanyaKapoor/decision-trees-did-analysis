@@ -7,37 +7,65 @@
       <rect width="100" height="100" fill="url(#smallGrid)"/>
       <path d="M 100 0 L 0 0 0 100" fill="none" stroke="gray" stroke-width="1" opacity="0.8"/>
     </pattern>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+            refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
   </defs>
   <rect width="600" height="500" fill="url(#grid)" />
+  
+  <!-- Coordinate labels -->
   <text x="20" y="490" font-family="Arial" font-size="12" fill="black">72.940°E</text>
   <text x="580" y="490" font-family="Arial" font-size="12" fill="black">72.950°E</text>
   <text x="5" y="20" font-family="Arial" font-size="12" fill="black">24.645°N</text>
   <text x="5" y="480" font-family="Arial" font-size="12" fill="black">24.635°N</text>
+  
+  <!-- Reference point (red) -->
   <circle cx="300" cy="250" r="8" fill="red" />
   <text x="310" y="245" font-family="Arial" font-size="14" fill="black">Reference Point</text>
   <text x="310" y="260" font-family="Arial" font-size="12" fill="black">(72.945114, 24.641104)</text>
-  <ellipse cx="350" cy="200" rx="40" ry="25" fill="#74ccf4"/>
+  
+  <!-- Water body 1 - Closest (Now square with pixel annotation) -->
+  <rect x="330" y="180" width="40" height="40" fill="#74ccf4" stroke="#000" stroke-width="1"/>
   <text x="350" y="200" font-family="Arial" font-size="12" fill="black" text-anchor="middle">Water</text>
-  <text x="350" y="215" font-family="Arial" font-size="10" fill="black" text-anchor="middle">120m away</text>
-  <ellipse cx="180" cy="300" rx="50" ry="30" fill="#74ccf4"/>
+  <text x="350" y="215" font-family="Arial" font-size="10" fill="black" text-anchor="middle">2m away</text>
+  
+  <!-- Arrow and pixel annotation -->
+  <line x1="390" y1="200" x2="370" y2="200" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="450" y="205" font-family="Arial" font-size="12" fill="black" text-anchor="middle" font-weight="bold">One LULC pixel from raster</text>
+  
+  <!-- Water body 2 - Medium distance -->
+  <rect x="155" y="275" width="50" height="50" fill="#1ca3ec" stroke="#000" stroke-width="1"/>
   <text x="180" y="300" font-family="Arial" font-size="12" fill="black" text-anchor="middle">Water</text>
-  <text x="180" y="315" font-family="Arial" font-size="10" fill="black" text-anchor="middle">250m away</text>
-  <ellipse cx="450" cy="380" rx="70" ry="40" fill="#74ccf4"/>
+  <text x="180" y="315" font-family="Arial" font-size="10" fill="black" text-anchor="middle">22m away</text>
+  
+  <!-- Water body 3 - Farthest -->
+  <rect x="415" y="350" width="70" height="60" fill="#0f5e9c" stroke="#000" stroke-width="1"/>
   <text x="450" y="380" font-family="Arial" font-size="12" fill="white" text-anchor="middle">Water</text>
-  <text x="450" y="395" font-family="Arial" font-size="10" fill="white" text-anchor="middle">400m away</text>
+  <text x="450" y="395" font-family="Arial" font-size="10" fill="white" text-anchor="middle">50m away</text>
+  
+  <!-- Distance lines -->
   <line x1="300" y1="250" x2="350" y2="200" stroke="black" stroke-width="1" stroke-dasharray="5,3"/>
   <line x1="300" y1="250" x2="180" y2="300" stroke="black" stroke-width="1" stroke-dasharray="5,3"/>
   <line x1="300" y1="250" x2="450" y2="380" stroke="black" stroke-width="1" stroke-dasharray="5,3"/>
-  <circle cx="350" cy="200" r="55" fill="none" stroke="blue" stroke-width="2" stroke-dasharray="5,3"/>
-  <text x="410" y="170" font-family="Arial" font-size="14" fill="blue" font-weight="bold">Nearest water body</text>
+  
+  <!-- Highlight circle around closest water body -->
+  <rect x="325" y="175" width="50" height="50" fill="none" stroke="blue" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="410" y="170" font-family="Arial" font-size="14" fill="blue" font-weight="bold">Nearest water pixel</text>
   <text x="410" y="185" font-family="Arial" font-size="12" fill="blue">(selected)</text>
+  
+  <!-- Legend -->
   <rect x="20" y="20" width="180" height="80" fill="white" opacity="0.8" rx="5"/>
   <text x="30" y="40" font-family="Arial" font-size="14" font-weight="bold" fill="black">Legend</text>
+  
   <circle cx="40" cy="60" r="6" fill="red"/>
   <text x="55" y="65" font-family="Arial" font-size="12" fill="black">Reference Point</text>
-  <rect x="30" y="75" width="15" height="10" fill="#74ccf4"/>
-  <text x="55" y="85" font-family="Arial" font-size="12" fill="black">Water Pixel</text>
+  
+  <rect x="30" y="75" width="15" height="15" fill="#74ccf4" stroke="#000" stroke-width="0.5"/>
+  <text x="55" y="85" font-family="Arial" font-size="12" fill="black">Water Pixels from IndiaSAT LULC</text>
+  
+  <!-- Title -->
   <rect x="150" y="430" width="300" height="60" fill="white" opacity="0.8" rx="5"/>
   <text x="300" y="455" font-family="Arial" font-size="16" font-weight="bold" fill="black" text-anchor="middle">Finding the Nearest Water Pixel</text>
-  <text x="300" y="475" font-family="Arial" font-size="12" fill="black" text-anchor="middle">Algorithm identifies water pixel with shortest distance to reference point and then vectorises the water body & ZOI around it</text>
+  <text x="300" y="475" font-family="Arial" font-size="12" fill="black" text-anchor="middle">Algorithm identifies water pixel with shortest distance to reference point</text>
 </svg>
