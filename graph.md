@@ -1,22 +1,19 @@
 ```mermaid
 graph TD
-    A[ALl AEZs] -->|RELATIVE_BOREWELL_DENSITY <= 0.10| B[AEZ 12, 10, 6]
-    A -->|RELATIVE_BOREWELL_DENSITY > 0.10| C[AEZ 2, 4, 7, 9, 11, 13]
+    A[Agro-Ecological Zones] --> B[Rainfall < 1000mm]
+    A --> C[Rainfall > 1000mm]
     
-    B -->|IS CANAL DENSITY HIGH?| D[SLIGHTLY POSITIVE - AEZ 6]
-    B -->|IS CANAL DENSITY LOW?| E[NEGLIGIBLE - AEZ 12 and 10]
+    B --> D[LHS Canal Low: AEZ 2, 4]
+    B --> E[LHS Canal High: AEZ 6, 7]
     
-    C -->|IS FARM POND DENSITY LOW?| H[AEZ 4 and 7]
-    C -->|IS FARM POND DENSITY MODERATE-HIGH?| I[AEZ 2, 9, 11, 13]
+    E --> F[LHS-RHS Borewell High: AEZ 6]
+    E --> G[LHS-RHS Borewell Low: AEZ 7]
+    D --> H[LHS-RHS Borewell Low: AEZ 2, 4]
     
-    H -->|CANAL DENSITY LOW| J[NEGLIGIBLE - AEZ 4]
-    H -->|CANAL DENSITY HIGH| K[SLIGHTLY POSITIVE - AEZ 7]
+    C --> I[RHS Canal High: AEZ 9]
+    C --> J[RHS Canal Low: AEZ 10, 11, 12, 13]
     
-    I -->|IS RAINFALL VERY LOW?| L[HIGHLY POSITIVE - AEZ 2]
-    I -->|IS RAINFALL HIGH?| M[SLIGHTLY POSITIVE - AEZ 11, 13, 9]
+    I --> K[LHS-RHS Borewell High: AEZ 9]
     
-    classDef decisionNode fill:#ffcc99,stroke:#ff9900,stroke-width:2px;
-    classDef leafNode fill:#ccffcc,stroke:#00cc00,stroke-width:2px;
-    
-    class A,B,C,H,I decisionNode;
-    class E,D,J,K,L,M leafNode;
+    J --> L[LHS-RHS Borewell High: AEZ 13]
+    J --> M[LHS-RHS Borewell Low: AEZ 10, 11, 12]
